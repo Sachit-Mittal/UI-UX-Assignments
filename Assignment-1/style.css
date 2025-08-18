@@ -1,21 +1,127 @@
-*{
-    margin:0;
-    padding:0;
+/* ==== GENERAL PAGE STYLE ==== */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-html,body{
-    width:100%;
-    height: 100%;
-    background-color: black;
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #0d0d0d, #1f1f1f, #111827);
+    color: #eaeaea;
+    overflow-x: hidden;
 }
-h1{
-    color:aliceblue ;
-    padding-top: 30px;
-    display: flex;
-    justify-content: center;
+
+/* ==== HEADER ==== */
+header {
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 30px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
 }
-h2{
-    color: aliceblue;
-    padding-top: 20px;
-    padding-left:25px;
+
+header h1 {
+    font-size: 2.5rem;
+    color: #00f2fe;
+    text-shadow: 0 0 10px #00f2fe, 0 0 20px #00f2fe;
+}
+
+header p {
+    font-style: italic;
+    color: #ccc;
+}
+
+/* ==== NAVIGATION ==== */
+nav {
+    position: sticky;
+    top: 0;
+    background: rgba(20, 20, 20, 0.85);
+    text-align: center;
+    padding: 12px;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+nav a {
+    color: #eaeaea;
+    margin: 0 18px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #00f2fe;
+    text-shadow: 0 0 8px #00f2fe;
+}
+
+/* ==== SECTION STYLE ==== */
+section {
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 25px auto;
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    backdrop-filter: blur(12px);
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+section h2 {
+    color: #00f2fe;
+    text-shadow: 0 0 5px #00f2fe;
+    margin-bottom: 15px;
+}
+
+/* ==== TABLE STYLE ==== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(0,0,0,0.3);
+}
+
+table, th, td {
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background: rgba(0, 242, 254, 0.15);
+    color: #00f2fe;
+}
+
+/* ==== LISTS ==== */
+ul, ol {
+    padding-left: 20px;
+}
+
+ul li, ol li {
+    margin-bottom: 8px;
+}
+
+/* ==== FOOTER ==== */
+footer {
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+}
+
+/* ==== ANIMATIONS ==== */
+@keyframes fadeUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
