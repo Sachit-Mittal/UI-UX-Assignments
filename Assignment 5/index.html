@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Assignment</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    section { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 8px; }
+    h2 { color: #2c3e50; }
+    button { margin-top: 10px; padding: 5px 10px; }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Programs</h1>
+
+  <!-- i. Arithmetic Operations -->
+  <section>
+    <h2>i. Arithmetic Operations</h2>
+    <button onclick="arithmeticOperations()">Enter Numbers</button>
+    <div id="arithmeticResult"></div>
+  </section>
+
+  <!-- ii. Array Operations -->
+  <section>
+    <h2>ii. Array Operations</h2>
+    <button onclick="arrayOperations()">Show Array Operations</button>
+    <div id="arrayResult"></div>
+  </section>
+
+  <!-- iii. Form Validation -->
+  <section>
+    <h2>iii. Form Validation</h2>
+    <form id="myForm">
+      Name: <input type="text" id="name"><br><br>
+      Email: <input type="text" id="email"><br><br>
+      Age: <input type="number" id="age"><br><br>
+      <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+  </section>
+
+  <!-- iv. Student Object -->
+  <section>
+    <h2>iv. Student Object Operations</h2>
+    <button onclick="studentInfo()">Show Student Info</button>
+    <div id="studentResult"></div>
+  </section>
+
+  <!-- v. Array with map(), filter(), reduce() -->
+  <section>
+    <h2>v. Process Array (map, filter, reduce)</h2>
+    <button onclick="processArrayHandler()">Process Array</button>
+    <div id="processResult"></div>
+  </section>
+
+  <script>
+    // i. Arithmetic Operations
+    function arithmeticOperations() {
+      let num1 = parseFloat(prompt("Enter the first number:"));
+      let num2 = parseFloat(prompt("Enter the second number:"));
+      let result = `
+        Sum: ${num1 + num2}<br>
+        Difference: ${num1 - num2}<br>
+        Product: ${num1 * num2}<br>
+        Quotient: ${num1 / num2}
+      `;
+      document.getElementById("arithmeticResult").innerHTML = result;
+    }
+
+    // ii. Array Operations
+    function arrayOperations() {
+      let arr = [12, 45, 7, 23, 56];
+      let largest = Math.max(...arr);
+      let smallest = Math.min(...arr);
+      let ascending = [...arr].sort((a, b) => a - b);
+      let descending = [...arr].sort((a, b) => b - a);
+      let result = `
+        Original Array: ${arr}<br>
+        Largest: ${largest}<br>
+        Smallest: ${smallest}<br>
+        Ascending: ${ascending}<br>
+        Descending: ${descending}
+      `;
+      document.getElementById("arrayResult").innerHTML = result;
+    }
+
+    // iii. Form Validation
+    function validateForm() {
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let age = parseInt(document.getElementById("age").value);
+      if (name === "") {
+        alert("Name cannot be empty");
+        return;
+      }
+      let emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert("Invalid email format");
+        return;
+      }
+      if (isNaN(age) || age < 18 || age > 100) {
+        alert("Age must be between 18 and 100");
+        return;
+      }
+      alert("Form submitted successfully!");
+    }
+
+    // iv. Student Object
+    function studentInfo() {
+      let student = { name: "Rahul", age: 20, grade: "B" };
+      student.class = "12th";
+      student.grade = "A";
+      let output = "";
+      for (let key in student) {
+        output += `${key}: ${student[key]}<br>`;
+      }
+      document.getElementById("studentResult").innerHTML = output;
+    }
+
+    // v. Process Array (map, filter, reduce)
+    function processArrayHandler() {
+      let arr = [1, 2, 3, 4, 5, 6];
+      let result = arr
+        .filter(num => num % 2 === 0)
+        .map(num => num * 2)
+        .reduce((sum, num) => sum + num, 0);
+      document.getElementById("processResult").innerHTML = `
+        Original Array: ${arr}<br>
+        Sum after processing: ${result}
+      `;
+    }
+  </script>
+</body>
+</html>
